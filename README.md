@@ -1,0 +1,6 @@
+
+1. install npm
+2. install mysql
+3. setup mysql
+  3a. setup using the file routes/connection.js
+4. start the app - 'node start' or 'nodemon'
