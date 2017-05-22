@@ -1,0 +1,25 @@
+
+extends layout
+
+block content
+  .block
+    form(method='POST' action='/search')
+      input#phone_number.form-control(type='text', placeholder='Phone Number' name='phone_number')
+      button.btn.btn-primary(type='submit') Search
+
+    
+    table(border='1')
+      thead
+        tr
+          td Id
+          td Phone Number
+          td Name
+          td Age
+          td Address
+      tbody
+      for object in params.param3
+        tr
+          for subobject in object
+            td= subobject
+
+   

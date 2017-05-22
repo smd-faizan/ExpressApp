@@ -1,0 +1,25 @@
+
+script(src="/routes/connection.js")
+extends layout
+
+block content
+  .main.container
+    .row
+      .col-md-6.col-md-offset-3
+        h1.display-4.m-b-2 Sign Up
+
+        // register form
+        form(method='POST' action='/insert')
+          div.form-group
+            label(for='name') Name: 
+            input#name.form-control(type='text', placeholder='first and last' name='name')
+          div.form-group
+            label(for='phoneNumber') Phone Number: 
+            input#phoneNumber.form-control(type='text', name='phoneNumber')
+          div.form-group
+            label(for='age') Age: 
+            input#age.form-control(type='int', name='age')
+          div.form-group
+            label(for='address') Address: 
+            input#address.form-control(type='text', name='address')
+          button.btn.btn-primary(type='submit') Enroll Patient
