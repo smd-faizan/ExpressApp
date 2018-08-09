@@ -4,18 +4,78 @@ extends layout
 block content
   .block
     form(method='POST' action='/search')
-      input#phone_number.form-control(type='text', placeholder='Phone Number' name='phone_number')
+      div.form-group
+        label(for='id') ID: 
+        input#first_name.form-control(type='number', name='id')
+      div.form-group
+        label(for='first_name') First Name: 
+        input#first_name.form-control(type='text', placeholder='first name', name='first_name')
+      div.form-group
+        label(for='middle_name') Middle Name: 
+        input#middle_name.form-control(type='text', placeholder='middle name', name='middle_name')
+      div.form-group
+        label(for='nationality') Nationality: 
+        input#nationality.form-control(type='text', name='nationality')
+      div.form-group
+        label(for='po_box_no') PO BOX NO: 
+        input#po_box_no.form-control(type='text', name='po_box_no')
+      div.form-group
+        label(for='city') City: 
+        input#city.form-control(type='text', name='city')
+      div.form-group
+        label(for='country') Country: 
+        input#country.form-control(type='text', name='country')
+      div.form-group
+        label(for='sex') Sex: 
+        select(id='sex', name='sex')
+          option(value='') -- Any --
+          option(value='M') Male
+          option(value='F') Female
+      div.form-group
+        label(for='mobile') Mobile: 
+        input#mobile.form-control(type='text', name='mobile')
+      div.form-group
+        label(for='home') Home: 
+        input#home.form-control(type='text', name='home')
+      div.form-group
+        label(for='office') Office: 
+        input#office.form-control(type='text', name='office')
+      div.form-group
+        label(for='fax') Fax: 
+        input#fax.form-control(type='text', name='fax')
+      div.form-group
+        label(for='remarks') Remarks: 
+        input#remarks.form-control(type='text', name='remarks')
+      div.form-group
+        label(for='age') Age Between: 
+        input#age.form-control(type='number', name='age_start')
+        label  & 
+        input#age.form-control(type='number', name='age_end')
       button.btn.btn-primary(type='submit') Search
+
 
     
     table(border='1')
       thead
         tr
           td Id
-          td Phone Number
-          td Name
+          td First Name
+          td Middle Name
+          td Nationality
+          td First date of visit
+          td Last date of visit
+          td PO Box NO
+          td City
+          td Country
+          td Sex
+          td Mobile
+          td Home
+          td Office
+          td Fax
+          td Remarks
+          td Flag
           td Age
-          td Address
+          td Age type
       tbody
       for object in params.param3
         tr

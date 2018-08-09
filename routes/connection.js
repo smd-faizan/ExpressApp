@@ -27,9 +27,46 @@ closeSqlConnection = function (currentConnection) {
 		});
 	};
 
-insertPatient = function (phone_number, name, age, address) {
+function getTodaysDate() {
+    var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; //January is 0!
+	var yyyy = today.getFullYear();
+	if(dd<10) {
+    	dd = '0'+dd
+	} 
+	if(mm<10) {
+    	mm = '0'+mm
+	}
+	today = yyyy + '-' + mm + '-' + dd ;
+	return today;
+}
+
+insertPatient = function (first_name, middle_name,
+                           nationality, first_date_of_visit,
+                           last_date_of_visit, po_box_no,
+                           city, country,
+                           sex, mobile,
+                           home, office,
+                           fax, remarks,
+                           age, age_type) {
 		var connection = getConnection();
-		var sqlStatement = "INSERT INTO `project`.`patient_details` (`phone_number`, `name`, `age`, `address`) VALUES ('" + phone_number + "', '" + name + "', " + age + ", '" + address + "')";
+		if(!age){
+			age = 0
+		}
+		if(!first_date_of_visit){
+			first_date_of_visit = getTodaysDate();
+		}
+		if(!last_date_of_visit){
+			last_date_of_visit = getTodaysDate();
+		}
+		var sqlStatement = "INSERT INTO `project`.`alamal_data` "
+							+ "(`FIRSTNAME`, `MIDDLENAME`, `NATIONALITY`, `FIRSTDATEOFVISIT`, `LASTDATEOFVISIT`, `POBOXNO`, `CITY`, `COUNTRY`, `SEX`, `MOBILE`, `HOME`, `OFFICE`, `FAX`, `REMARKS`, `AGE`, `AGETYPE`) VALUES ('" 
+							+ first_name + "', '" + middle_name + "', '" + nationality + "', '" + first_date_of_visit + "','"
+							+ last_date_of_visit + "', '" + po_box_no + "', '" + city + "', '" + country + "', '"
+							+ sex + "', '" + mobile + "', '" + home + "', '" + office + "', '"
+							+ fax + "', '" + remarks + "', " + age + ", '" + age_type + "'"
+							+ ")";
   		console.log(" STATEMENT : "+sqlStatement);
   		connection.query(sqlStatement, function (err, result) {
     		if (err) throw err;

@@ -11,15 +11,57 @@ block content
         // register form
         form(method='POST' action='/insert')
           div.form-group
-            label(for='name') Name: 
-            input#name.form-control(type='text', placeholder='first and last' name='name')
+            label(for='first_name') * First Name: 
+            input#first_name.form-control(type='text', placeholder='first name', name='first_name', required='')
           div.form-group
-            label(for='phoneNumber') Phone Number: 
-            input#phoneNumber.form-control(type='text', name='phoneNumber')
+            label(for='middle_name') Middle Name: 
+            input#middle_name.form-control(type='text', placeholder='middle name', name='middle_name')
           div.form-group
-            label(for='age') Age: 
-            input#age.form-control(type='int', name='age')
+            label(for='nationality') Nationality: 
+            input#nationality.form-control(type='text', name='nationality')
           div.form-group
-            label(for='address') Address: 
-            input#address.form-control(type='text', name='address')
+            label(for='first_date_of_visit') First date of visit: 
+            input#first_date_of_visit.form-control(type='date', name='first_date_of_visit')
+          div.form-group
+            label(for='last_date_of_visit') Last date of visit: 
+            input#last_date_of_visit.form-control(type='date', name='last_date_of_visit')
+          div.form-group
+            label(for='po_box_no') PO BOX NO: 
+            input#po_box_no.form-control(type='text', name='po_box_no')
+          div.form-group
+            label(for='city') City: 
+            input#city.form-control(type='text', name='city')
+          div.form-group
+            label(for='country') Country: 
+            input#country.form-control(type='text', name='country')
+          div.form-group
+            label(for='sex') * Sex: 
+            select(id='sex', name='sex', required='')
+              option(disabled selected value) -- select --
+              option(value='M') Male
+              option(value='F') Female
+          div.form-group
+            label(for='mobile') Mobile: 
+            input#mobile.form-control(type='text', name='mobile')
+          div.form-group
+            label(for='home') Home: 
+            input#home.form-control(type='text', name='home')
+          div.form-group
+            label(for='office') Office: 
+            input#office.form-control(type='text', name='office')
+          div.form-group
+            label(for='fax') Fax: 
+            input#fax.form-control(type='text', name='fax')
+          div.form-group
+            label(for='remarks') Remarks: 
+            input#remarks.form-control(type='text', name='remarks')
+          div.form-group
+            label(for='age') * Age: 
+            input#age.form-control(type='number', name='age', required='')
+          div.form-group
+            label(for='age_type') Age type: 
+            select(id='age_type', name='age_type')
+              option(value='Y') Years
+              option(value='M') Months
+              option(value='D') Days
           button.btn.btn-primary(type='submit') Enroll Patient
