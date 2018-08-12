@@ -54,13 +54,25 @@ insertPatient = function (first_name, middle_name,
 		if(!age){
 			age = 0
 		}
+		if(!mobile){
+			mobile = 0
+		}
+		if(!home){
+			home = 0
+		}
+		if(!office){
+			office = 0
+		}
+		if(!fax){
+			fax = 0
+		}
 		if(!first_date_of_visit){
 			first_date_of_visit = getTodaysDate();
 		}
 		if(!last_date_of_visit){
 			last_date_of_visit = getTodaysDate();
 		}
-		var sqlStatement = "INSERT INTO `project`.`alamal_data` "
+		var sqlStatement = "INSERT INTO `project`.`patient_details` "
 							+ "(`FIRSTNAME`, `MIDDLENAME`, `NATIONALITY`, `FIRSTDATEOFVISIT`, `LASTDATEOFVISIT`, `POBOXNO`, `CITY`, `COUNTRY`, `SEX`, `MOBILE`, `HOME`, `OFFICE`, `FAX`, `REMARKS`, `AGE`, `AGETYPE`) VALUES ('" 
 							+ first_name + "', '" + middle_name + "', '" + nationality + "', '" + first_date_of_visit + "','"
 							+ last_date_of_visit + "', '" + po_box_no + "', '" + city + "', '" + country + "', '"

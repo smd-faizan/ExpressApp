@@ -37,7 +37,7 @@ router.post('/insert', function (req, res) {
 
 router.get('/patients', function(req, res){
 	var connection = my_connection.getConnection();
-	var sqlStatement = "SELECT * FROM alamal_data LIMIT 20";
+	var sqlStatement = "SELECT * FROM patient_details LIMIT 20";
 	connection.query(sqlStatement, function (err, result) {
     		if (err) throw err;
     		console.log("Get Patient query succesfull!!");
@@ -62,7 +62,7 @@ router.post('/search', function (req, res) {
   console.log("searching for " + req.body.id );
 
   var connection = my_connection.getConnection();
-  var sqlStatement = "SELECT * FROM alamal_data WHERE "
+  var sqlStatement = "SELECT * FROM patient_details WHERE "
   if(!!req.body.id){
     sqlStatement = sqlStatement +"﻿REG_FILE_NO="+req.body.id + " AND " 
   }
